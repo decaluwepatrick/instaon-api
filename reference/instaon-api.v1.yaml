@@ -1,0 +1,17 @@
+openapi: 3.0.0
+info:
+  title: Instaon API
+  version: '1.0'
+  contact:
+    name: Patrick De Caluwé
+    email: patrick@instaon.io
+    url: 'https://instaon.io/partners'
+  termsOfService: 'https://instaon.io/en/terms'
+servers:
+  - url: 'https://instaon.io'
+paths: {}
+components:
+  schemas: {}
+  securitySchemes:
+    API Key - 1:
+      type: oauth2
