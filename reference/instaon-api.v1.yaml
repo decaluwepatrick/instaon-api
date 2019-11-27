@@ -9,9 +9,9 @@ info:
   termsOfService: 'https://instaon.io/en/terms'
   description: ''
 servers:
-  - url: 'https://instaon.io'
+  - url: 'https://instaon.io/api/'
 paths:
-  /campaigns:
+  campaigns:
     get:
       summary: Get list of campaigns
       tags:
@@ -20,31 +20,73 @@ paths:
         '200':
           description: OK
       operationId: get-campaigns
+      requestBody: {}
     patch:
       summary: Create a campaign
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
       operationId: patch-campaigns
+      requestBody: {}
     delete:
       summary: Delete a campaign
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
       operationId: delete-campaigns
-  /users/login:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+        description: ''
+    parameters: []
+  users/login:
     post:
       summary: Login to receive an access token
       tags:
         - users
       responses: {}
       operationId: post-users-login
-  /suggestions:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: decaluwe.patrick3@gmail.com
+                password:
+                  type: string
+                  example: decaluwe.patrick3@gmail.com
+        description: "{ \n   \"email\":\"decaluwe.patrick3@gmail.com\",\n   \"password\":\"decaluwe.patrick3@gmail.com\"\n}"
+      parameters: []
+      security:
+        - API Key - 1: []
+      description: ''
+    parameters: []
+  suggestions:
     get:
       summary: Get suggestions to improve campaigns
       tags: []
       responses: {}
       operationId: get-suggestions
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: sdsf
+    parameters: []
 components:
   schemas: {}
   securitySchemes:
     API Key - 1:
       type: oauth2
+      flows:
+        authorizationCode:
+          scopes: {}
+      description: ''
