@@ -7,9 +7,42 @@ info:
     email: patrick@instaon.io
     url: 'https://instaon.io/partners'
   termsOfService: 'https://instaon.io/en/terms'
+  description: ''
 servers:
   - url: 'https://instaon.io'
-paths: {}
+paths:
+  /campaigns:
+    get:
+      summary: Get list of campaigns
+      tags:
+        - campaigns
+      responses:
+        '200':
+          description: OK
+      operationId: get-campaigns
+    patch:
+      summary: Create a campaign
+      tags: []
+      responses: {}
+      operationId: patch-campaigns
+    delete:
+      summary: Delete a campaign
+      tags: []
+      responses: {}
+      operationId: delete-campaigns
+  /users/login:
+    post:
+      summary: Login to receive an access token
+      tags:
+        - users
+      responses: {}
+      operationId: post-users-login
+  /suggestions:
+    get:
+      summary: Get suggestions to improve campaigns
+      tags: []
+      responses: {}
+      operationId: get-suggestions
 components:
   schemas: {}
   securitySchemes:
